@@ -1,7 +1,7 @@
 # RW-Android-Bootcamp
 Repository for RW-bootcamp weekly homework
 
-![Image of CHEICK] (https://raw.githubusercontent.com/kocheick/RW-Android-Bootcamp/4b1d525ca545407874e3dab9640e32f9a0b79219/COVER.jpg)
+![Image of CHEICK] ((https://github.com/[username]/[reponame]/blob/[branch]/COVER.jpg?raw=true)
 
 Hello there, my name is Cheick Kante, Discord Username : TM Cheick K.
 
