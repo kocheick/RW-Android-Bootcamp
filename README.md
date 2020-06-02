@@ -6,8 +6,8 @@ Hello there, my name is Cheick Kante, Discord Username : TM Cheick K.
 I live in New York, and am studying Electrical Engineering.
 
 
-I have made a few Websites for musician friends
+I made a couple of websites for artist friends and a very basic app, just to assess myself. I don't feel 100% confident in knowing the essentials when it comes to putting different technologies together to get a job done, but I'm getting there.
 
-Goals and/or Hobbies and Interests
-I aspire to become a skilled software developper
-I've been teaching myself Software Development for almost a year. I learned how crucial understanding the basics well, would affect one's career so I like to play around with different tools 
+
+I aspire to become a skilled software developper.
+I've been teaching myself Software Development for almost a year. I know how crucial understanding the basics, can affect one's career for the better so I like to play around with different tools and explore different ways of getting tasks done.
