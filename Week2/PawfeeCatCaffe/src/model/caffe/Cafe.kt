@@ -33,11 +33,11 @@ class Cafe {
 
     // TODO Add logic for checking in and checking out!
     fun checkInEmployee(employee: Employee) {
-
+        employees.add(employee)
     }
 
     fun checkOutEmployee(employee: Employee) {
-
+        employees.remove(employee)
     }
 
     fun showNumberOfReceiptsForDay(day: String) {
