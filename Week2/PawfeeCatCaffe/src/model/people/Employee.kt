@@ -29,6 +29,6 @@ class Employee(
     // TODO same as above, but times for clocking out!
     fun clockOut() {
         val date = SimpleDateFormat("yyyy.MM.dd G")
-        println("Clock-out at $date")
+        println("Clock-out <at $date")
     }
 }

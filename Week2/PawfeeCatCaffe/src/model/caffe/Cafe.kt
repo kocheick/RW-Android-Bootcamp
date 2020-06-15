@@ -11,7 +11,7 @@ class Cafe {
 
     /**
      * To simplify it, let's imitate a week-long cafe turnaround.
-     *
+     *UID.randomUUID().toString()UUID.randomUUID().toString()
      * Make sure to add your receipts to each set, with your data.
      * */
     private val receiptsByDay = mutableMapOf(
@@ -33,10 +33,12 @@ class Cafe {
 
     // TODO Add logic for checking in and checking out!
     fun checkInEmployee(employee: Employee) {
+        employee.clockIn()
         employees.add(employee)
     }
 
     fun checkOutEmployee(employee: Employee) {
+        employee.clockOut()
         employees.remove(employee)
     }
 
@@ -48,21 +50,25 @@ class Cafe {
 
     fun getReceipt(items: List<Product>, customerId: String): Receipt {
         // TODO return a receipt! Also make sure to check if customer is also an employee
+        var totalPrice = items.map { it.price }.sum()
 
-        return Receipt()
+        return Receipt( items = items,totalPrice = totalPrice, customerId = customerId)
     }
 
     fun addSponsorship(catId: String, personId: String) {
-        // TODO add the sponsorship
+      val sponsorship = Sponsorship(personId, catId)
+        sponsorships.add(sponsorship)
+        println("Sponsorship added by #$personId for cat #$catId")
     }
 
     fun getWorkingEmployees(): Set<Employee> = employees
 
     fun getAdoptedCats(): Set<Cat> {
-
+        val cats = (employees+customers).map { it.cats}
     }
 
     fun getSponsoredCats(): Set<Cat> {
+        val cats = sponsorships.map { it.catId  }
 
     }
 
