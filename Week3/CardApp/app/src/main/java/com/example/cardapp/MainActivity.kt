@@ -1,15 +1,11 @@
 package com.example.cardapp
 
-import android.app.Activity
+import android.app.AlertDialog.*
 import android.content.Intent
-import android.content.res.Resources
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.children
 import androidx.core.view.iterator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
@@ -34,12 +30,25 @@ class MainActivity : AppCompatActivity() {
 
         darkModeSwitch.setOnClickListener {
             darkModeSwitch.text = if (darkModeSwitch.isChecked) "Light" else "Dark"
-
-          switchTheme(darkModeSwitch.isChecked)
+            switchTheme(darkModeSwitch.isChecked)
         }
 
         shareButtonView.setOnClickListener {
-            shareData()
+            shareInfo()
+        }
+
+        for (view in scrollViewLinearLayout) {
+            view.setOnClickListener {
+                val dialogTitle = view.contentDescription.toString()
+                val dialogMessage = getString(R.string.dialogMessage)
+
+                val builder = Builder(this).apply {
+                    setTitle(dialogTitle)
+                    setMessage(dialogMessage)
+                    create()
+                    show()
+                }
+            }
         }
 
     }
@@ -99,10 +108,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun shareData() {
+    private fun shareInfo() {
         val sendIntent = Intent().apply {
             action = Intent.ACTION_SEND
-            title = "Share info with"
+
 
             putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
             type = "text/plain"
