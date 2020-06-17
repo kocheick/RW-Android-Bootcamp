@@ -1,10 +1,13 @@
 package com.example.cardapp
 
+import android.app.Activity
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.children
 import androidx.core.view.iterator
@@ -24,29 +27,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
-         loadUser(user)
+        loadUser(user)
 
         darkModeSwitch.setOnClickListener {
-            darkModeSwitch.text = if(darkModeSwitch.isChecked) "Light" else "Dark"
+            darkModeSwitch.text = if (darkModeSwitch.isChecked) "Light" else "Dark"
 
-            if (darkModeSwitch.isChecked) {
-                rootLayout.setBackgroundColor(getColor(R.color.dark_shade))
-                for (view in scrollViewLinearLayout) view.setBackgroundColor(getColor(R.color.dark_shade))
-                shareButtonView.setBackgroundColor(getColor(R.color.dark_shade))
-
-
-                this.darkModeSwitch.setTextColor( Color.WHITE)
-
-            } else {
-                rootLayout.setBackgroundColor(getColor(R.color.dirt_white))
-                for (view in scrollViewLinearLayout) view.setBackgroundColor(getColor(R.color.dirt_white))
-                shareButtonView.setBackgroundColor(getColor(R.color.dirt_white))
-
-                this.darkModeSwitch.setTextColor(Color.BLACK)
-            }
-
+          switchTheme(darkModeSwitch.isChecked)
         }
 
         shareButtonView.setOnClickListener {
@@ -55,25 +44,63 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun switchTheme(isSwitched: Boolean) {
+        if (isSwitched) {
 
-    private fun loadUser(user:Person) {
+            rootLayout.setBackgroundColor(getColor(R.color.dark_shade))
+
+
+            for (view in scrollViewLinearLayout) view.setBackgroundColor(getColor(R.color.dark_shade))
+            name.setTextColor(Color.WHITE)
+            for (view in contactGroup) if (view is TextView) view.setTextColor(getColor(R.color.light_gray))
+            job.setTextColor(getColor(R.color.light_red))
+            city.setTextColor(getColor(R.color.light_gray))
+            scheduleView.setTextColor(getColor(R.color.dark_red))
+
+            shareButtonView.setBackgroundColor(getColor(R.color.dark_shade))
+
+            this.darkModeSwitch.setTextColor(Color.WHITE)
+
+        } else {
+
+            rootLayout.setBackgroundColor(getColor(R.color.dirt_white))
+
+
+            for (view in scrollViewLinearLayout) view.setBackgroundColor(getColor(R.color.dirt_white))
+            name.setTextColor(getColor(R.color.gray))
+            for (view in contactGroup) if (view is TextView) view.setTextColor(getColor(R.color.gray))
+            job.setTextColor(getColor(R.color.dark_red))
+            city.setTextColor(getColor(R.color.gray))
+            scheduleView.setTextColor(getColor(R.color.light_gray))
+
+            shareButtonView.setBackgroundColor(getColor(R.color.dirt_white))
+
+            this.darkModeSwitch.setTextColor(Color.BLACK)
+
+
+        }
+
+    }
+
+
+    private fun loadUser(user: Person) {
         profilGroup.apply {
             name.text = getString(R.string.uName, user.fName)
-            job.text = getString(R.string.userJob,user.jobTitle)
-            city.text = getString(R.string.userCity,user.city)
-            scheduleView.text = getString(R.string.userSchedule,user.schedule)
+            job.text = getString(R.string.userJob, user.jobTitle)
+            city.text = getString(R.string.userCity, user.city)
+            scheduleView.text = getString(R.string.userSchedule, user.schedule)
         }
 
         contactGroup.apply {
-            phone.text = getString(R.string.userPhone,user.phone)
+            phone.text = getString(R.string.userPhone, user.phone)
             email.text = getString(R.string.userEmail, user.email)
-            contact.text = getString(R.string.userSocial,user.social)
-            social.text = getString(R.string.userSocial2,user.social)
+            contact.text = getString(R.string.userSocial, user.social)
+            social.text = getString(R.string.userSocial2, user.social)
         }
     }
 
     private fun shareData() {
-        val sendIntent= Intent().apply {
+        val sendIntent = Intent().apply {
             action = Intent.ACTION_SEND
             title = "Share info with"
 
