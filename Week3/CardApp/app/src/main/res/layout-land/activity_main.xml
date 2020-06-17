@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="400px"
-            android:layout_height="400px"
+            android:layout_width="350px"
+            android:layout_height="350px"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +30,7 @@
             android:id="@+id/job"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Digital Marketer"
+            android:text="@string/userJob"
             android:textColor="#AC0000"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -42,8 +41,9 @@
             android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Bronx, NY"
+            android:layout_marginTop="28dp"
+            android:text="@string/userCity"
+            android:textColor="#4E4E4E"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/job" />
@@ -52,18 +52,19 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="@string/name"
+            android:layout_marginStart="24dp"
+            android:text="@string/uName"
             android:textColor="#4E4E4E"
             android:textSize="34sp"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/scheduleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="M-F : 9AM - 5PM"
+            android:text="@string/userSchedule"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/city" />
@@ -75,7 +76,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/scrollView"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -89,7 +90,7 @@
 
             android:layout_marginLeft="32dp"
             android:paddingBottom="8dp"
-            android:text="+1 (666) 777 - 8888"
+            android:text="@string/userPhone"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -100,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:text="kocheick@email.me"
+            android:text="@string/userEmail"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/phone"
@@ -108,27 +109,27 @@
 
 
         <TextView
-            android:id="@+id/contact3"
+            android:id="@+id/contact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="64dp"
             android:paddingBottom="8dp"
-            android:text="Discord / Slack : Kocheick"
+            android:text="@string/userSocial"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/phone" />
 
         <TextView
-            android:id="@+id/social2"
+            android:id="@+id/social"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:text="Twitter / Snapchat : Kocheick"
+            android:text="@string/userSocial2"
             android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/contact3"
-            app:layout_constraintTop_toBottomOf="@id/contact3" />
+            app:layout_constraintStart_toStartOf="@+id/contact"
+            app:layout_constraintTop_toBottomOf="@id/contact" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -137,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+        app:layout_constraintBottom_toTopOf="@+id/shareButtonView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/contactGroup">
@@ -178,17 +179,30 @@
     </ScrollView>
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/shareButtonView"
         android:layout_width="200dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintCircleRadius="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView"
         app:srcCompat="@android:drawable/ic_menu_share" />
+
+    <Switch
+        android:id="@+id/darkModeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="280dp"
+        android:text="Dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shareButtonView"
+        app:layout_constraintVertical_bias="0.369" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
