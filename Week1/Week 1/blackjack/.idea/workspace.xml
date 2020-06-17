@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="91044c89-a7f8-49bd-834f-8ad377575505" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/out/production/blackjack/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackjack/Game.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1cnrpDgOyrDCTgcAcCuRbFIXFk9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="blackjack" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.MainKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="91044c89-a7f8-49bd-834f-8ad377575505" name="Default Changelist" comment="" />
+      <created>1591175378397</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591175378397</updated>
+      <workItem from="1591175379619" duration="411000" />
+      <workItem from="1591175916945" duration="86000" />
+      <workItem from="1591176018942" duration="299000" />
+      <workItem from="1591291281245" duration="741000" />
+      <workItem from="1591538856192" duration="32000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="836" y="228" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591175702464">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="836" y="228" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1591175702464" />
+    <state x="1110" y="362" width="525" height="418" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1591175665404">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="1110" y="362" width="525" height="418" key="#com.intellij.ide.util.TreeClassChooserDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1591175665404" />
+    <state x="1068" y="236" width="733" height="641" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1591175723991">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="1068" y="236" width="733" height="641" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1591175723991" />
+    <state x="1199" y="425" width="471" height="262" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591175754830">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="1199" y="425" width="471" height="262" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.30.1920.1050@0.30.1920.1050" timestamp="1591175754830" />
+    <state width="914" height="276" key="GridCell.Tab.0.bottom" timestamp="1591176317834">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state width="914" height="276" key="GridCell.Tab.0.bottom/0.30.1920.1050@0.30.1920.1050" timestamp="1591176317834" />
+    <state width="914" height="276" key="GridCell.Tab.0.center" timestamp="1591176317834">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state width="914" height="276" key="GridCell.Tab.0.center/0.30.1920.1050@0.30.1920.1050" timestamp="1591176317834" />
+    <state width="914" height="276" key="GridCell.Tab.0.left" timestamp="1591176317834">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state width="914" height="276" key="GridCell.Tab.0.left/0.30.1920.1050@0.30.1920.1050" timestamp="1591176317834" />
+    <state width="914" height="276" key="GridCell.Tab.0.right" timestamp="1591176317834">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state width="914" height="276" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1591176317834" />
+    <state x="607" y="183" width="992" height="733" key="SettingsEditor" timestamp="1591175510726">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="607" y="183" width="992" height="733" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1591175510726" />
+  </component>
+</project>
