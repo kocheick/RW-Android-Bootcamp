@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toTopOf="@id/contactGroup"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profilPhotoView"
             android:layout_width="130dp"
             android:layout_height="136dp"
