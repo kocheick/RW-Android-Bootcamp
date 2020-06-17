@@ -1,31 +1,51 @@
 package com.example.cardapp
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.children
+import androidx.core.view.iterator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity() {
     val user = Person(
-        "Cheick Kante",
-        "Digital Marketer",
-        "Bronx, NY",
+        "SHEICK BASS",
+        "SEO Expert / Digital Marketer",
+        "jamaica, NY",
         "M-F: 9AM-5PM",
         "646-666-7788",
-        "kocheick1@email.me",
-        "kocheick"
+        "bass@email.me",
+        "xBass"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-         loadUser()
+         loadUser(user)
 
         darkModeSwitch.setOnClickListener {
             darkModeSwitch.text = if(darkModeSwitch.isChecked) "Light" else "Dark"
+
+            if (darkModeSwitch.isChecked) {
+                rootLayout.setBackgroundColor(getColor(R.color.dark_shade))
+                for (view in scrollViewLinearLayout) view.setBackgroundColor(getColor(R.color.dark_shade))
+                shareButtonView.setBackgroundColor(getColor(R.color.dark_shade))
+
+
+                this.darkModeSwitch.setTextColor( Color.WHITE)
+
+            } else {
+                rootLayout.setBackgroundColor(getColor(R.color.dirt_white))
+                for (view in scrollViewLinearLayout) view.setBackgroundColor(getColor(R.color.dirt_white))
+                shareButtonView.setBackgroundColor(getColor(R.color.dirt_white))
+
+                this.darkModeSwitch.setTextColor(Color.BLACK)
+            }
 
         }
 
@@ -36,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun loadUser() {
+    private fun loadUser(user:Person) {
         profilGroup.apply {
             name.text = getString(R.string.uName, user.fName)
             job.text = getString(R.string.userJob,user.jobTitle)

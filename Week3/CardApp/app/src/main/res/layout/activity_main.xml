@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:id="@+id/rootLayout"
 >
 
 
@@ -21,7 +22,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/image"
+            android:src="@drawable/profil_image"
        />
 
         <TextView
@@ -88,7 +89,7 @@
 
             android:layout_marginLeft="16dp"
             android:paddingBottom="8dp"
-            android:text="+1 (666) 777 - 8888"
+            android:text="@string/userPhone"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -99,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:text="kocheick@email.me"
+            android:text="@string/userEmail"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/phone"
@@ -112,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="64dp"
             android:paddingBottom="8dp"
-            android:text="Discord / Slack : Kocheick"
+            android:text="@string/userSocial"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:text="Twitter / Snapchat : Kocheick"
+            android:text="@string/userSocial2"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/contact"
@@ -140,36 +141,42 @@
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
+            android:id="@+id/scrollViewLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
                 android:layout_weight="1"
+                android:background="#FAFAFA"
                 app:srcCompat="@android:drawable/ic_menu_mapmode" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
                 android:layout_weight="1"
+                android:background="#FAFAFA"
                 app:srcCompat="@android:drawable/ic_menu_compass" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
                 android:layout_weight="1"
+                android:background="#FAFAFA"
                 app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
                 android:layout_weight="1"
+                android:background="#FAFAFA"
                 app:srcCompat="@android:drawable/ic_dialog_email" />
         </LinearLayout>
     </ScrollView>
@@ -177,13 +184,14 @@
     <ImageButton
         android:id="@+id/shareButtonView"
         android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_height="64dp"
+        android:background="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintCircleRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView"
-
         app:srcCompat="@android:drawable/ic_menu_share" />
 
     <Switch
@@ -197,5 +205,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shareButtonView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
