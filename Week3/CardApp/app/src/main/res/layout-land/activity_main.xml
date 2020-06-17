@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/profilPhotoView"
             android:layout_width="350px"
             android:layout_height="350px"
             android:layout_marginStart="16dp"
@@ -56,8 +56,8 @@
             android:text="@string/uName"
             android:textColor="#4E4E4E"
             android:textSize="34sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            app:layout_constraintStart_toEndOf="@+id/profilPhotoView"
+            app:layout_constraintTop_toTopOf="@+id/profilPhotoView" />
 
         <TextView
             android:id="@+id/scheduleView"
@@ -198,11 +198,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="280dp"
         android:text="Dark"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintBottom_toBottomOf="@+id/shareButtonView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/shareButtonView"
-        app:layout_constraintVertical_bias="0.369" />
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

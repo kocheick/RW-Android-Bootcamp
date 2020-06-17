@@ -1,7 +1,9 @@
 package com.example.cardapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
@@ -20,7 +22,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    loadUser()
+         loadUser()
+
+        darkModeSwitch.setOnClickListener {
+            darkModeSwitch.text = if(darkModeSwitch.isChecked) "Light" else "Dark"
+
+        }
+
+        shareButtonView.setOnClickListener {
+            shareData()
+        }
 
     }
 
@@ -41,6 +52,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    
+    private fun shareData() {
+        val sendIntent= Intent().apply {
+            action = Intent.ACTION_SEND
+            title = "Share info with"
+
+            putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
 }
 

@@ -6,4 +6,5 @@
     <color name="dark_red">#8C0000</color>
     <color name="light_red">#FF0505</color>
     <color name="orange_red">#FF6D00</color>
+    <color name="dark_gray">#414141</color>
 </resources>
