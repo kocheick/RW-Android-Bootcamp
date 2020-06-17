@@ -8,16 +8,20 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profilGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/profilGroup">
+        android:layout_marginTop="16dp"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/contactGroup"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="130dp"
-            android:layout_height="136dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="400px"
+            android:layout_height="400px"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/image" />
@@ -26,7 +30,7 @@
             android:id="@+id/job"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:text="Digital Marketer"
             android:textColor="#AC0000"
             android:textSize="16sp"
@@ -38,9 +42,8 @@
             android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="15dp"
             android:text="Bronx, NY"
-            android:textColor="#4E4E4E"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/job" />
@@ -49,13 +52,12 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="32dp"
             android:text="@string/name"
             android:textColor="#4E4E4E"
             android:textSize="34sp"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
@@ -73,8 +75,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/scrollView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -85,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="32dp"
             android:paddingBottom="8dp"
             android:text="+1 (666) 777 - 8888"
             android:textSize="14sp"
@@ -133,10 +135,12 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/imageButton5"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contactGroup">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,14 +179,16 @@
 
     <ImageButton
         android:id="@+id/imageButton5"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_width="200dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintCircleRadius="50dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView"
-
         app:srcCompat="@android:drawable/ic_menu_share" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
