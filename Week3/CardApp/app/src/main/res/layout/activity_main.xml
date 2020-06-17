@@ -12,7 +12,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profilGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/contactGroup"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/profilPhotoView"
@@ -92,7 +94,7 @@
             android:text="@string/userPhone"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -117,7 +119,8 @@
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/phone" />
+            app:layout_constraintStart_toEndOf="@id/phone"
+            app:layout_constraintTop_toTopOf="@id/phone" />
 
         <TextView
             android:id="@+id/social"
@@ -199,7 +202,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="280dp"
-        android:text="Dark"
+        android:text="@string/switchText"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

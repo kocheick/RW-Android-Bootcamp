@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -118,7 +119,8 @@
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/phone" />
+            app:layout_constraintStart_toEndOf="@id/phone"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/social"
@@ -144,6 +146,7 @@
         app:layout_constraintTop_toBottomOf="@id/contactGroup">
 
         <LinearLayout
+            android:id="@+id/scrollViewLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -153,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#FAFAFA"
                 app:srcCompat="@android:drawable/ic_menu_mapmode" />
 
             <ImageButton
@@ -160,6 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#FAFAFA"
                 app:srcCompat="@android:drawable/ic_menu_compass" />
 
             <ImageButton
@@ -167,6 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#FAFAFA"
                 app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
             <ImageButton
@@ -174,6 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#FAFAFA"
                 app:srcCompat="@android:drawable/ic_dialog_email" />
         </LinearLayout>
     </ScrollView>
