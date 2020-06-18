@@ -4,34 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/rootLayout"
->
+    tools:context=".MainActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/profilGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/contactGroup"
-        app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/profilGroup">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profilPhotoView"
+        <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="130dp"
             android:layout_height="136dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/profil_image"
-       />
+            app:srcCompat="@drawable/image" />
 
         <TextView
             android:id="@+id/job"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/userJob"
+            android:layout_marginTop="12dp"
+            android:text="Digital Marketer"
             android:textColor="#AC0000"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -42,8 +38,8 @@
             android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/userCity"
+            android:layout_marginTop="16dp"
+            android:text="Bronx, NY"
             android:textColor="#4E4E4E"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/name"
@@ -54,18 +50,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="@string/uName"
+            android:text="@string/name"
             android:textColor="#4E4E4E"
             android:textSize="34sp"
-            app:layout_constraintStart_toEndOf="@+id/profilPhotoView"
-            app:layout_constraintTop_toTopOf="@+id/profilPhotoView" />
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
         <TextView
-            android:id="@+id/scheduleView"
+            android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="@string/userSchedule"
+            android:text="M-F : 9AM - 5PM"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/city" />
@@ -91,10 +87,10 @@
 
             android:layout_marginLeft="16dp"
             android:paddingBottom="8dp"
-            android:text="@string/userPhone"
+            android:text="+1 (666) 777 - 8888"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -102,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:text="@string/userEmail"
+            android:text="kocheick@email.me"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/phone"
@@ -110,28 +106,27 @@
 
 
         <TextView
-            android:id="@+id/contact"
+            android:id="@+id/contact3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="64dp"
             android:paddingBottom="8dp"
-            android:text="@string/userSocial"
+            android:text="Discord / Slack : Kocheick"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/phone"
-            app:layout_constraintTop_toTopOf="@id/phone" />
+            app:layout_constraintStart_toEndOf="@id/phone" />
 
         <TextView
-            android:id="@+id/social"
+            android:id="@+id/social2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:text="@string/userSocial2"
+            android:text="Twitter / Snapchat : Kocheick"
             android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/contact"
-            app:layout_constraintTop_toBottomOf="@id/contact" />
+            app:layout_constraintStart_toStartOf="@+id/contact3"
+            app:layout_constraintTop_toBottomOf="@id/contact3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -139,80 +134,63 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="212dp"
-        app:layout_constraintBottom_toTopOf="@+id/shareButtonView"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
-            android:id="@+id/scrollViewLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/attr"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FAFAFA"
-                android:contentDescription="World Reknowned"
                 app:srcCompat="@android:drawable/ic_menu_mapmode" />
 
             <ImageButton
-                android:id="@+id/attr2"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FAFAFA"
-                android:contentDescription="Get work done"
                 app:srcCompat="@android:drawable/ic_menu_compass" />
 
             <ImageButton
-                android:id="@+id/attr3"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FAFAFA"
-                android:contentDescription="Partnership"
                 app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
             <ImageButton
-                android:id="@+id/attr4"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
+                android:id="@+id/imageButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FAFAFA"
-                android:contentDescription="Stay informed"
                 app:srcCompat="@android:drawable/ic_dialog_email" />
         </LinearLayout>
     </ScrollView>
 
     <ImageButton
-        android:id="@+id/shareButtonView"
+        android:id="@+id/imageButton5"
         android:layout_width="150dp"
-        android:layout_height="64dp"
-        android:background="#FAFAFA"
-        android:contentDescription="share Contact Info"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleRadius="50dp"
-
         app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintCircleRadius="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView"
+
         app:srcCompat="@android:drawable/ic_menu_share" />
 
     <Switch
-        android:id="@+id/darkModeSwitch"
+        android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="280dp"
-        android:text="@string/switchText"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shareButtonView" />
-
+        android:text="Dark"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="683dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Info App</string>
+    <string name="app_name">CardApp</string>
     <string name="name">Cheick Kante</string>
-    <string name="switchText">Dark</string>
-    <string name="dialogMessage">Lorem ipsum dolor sit amet, rhoncus lobortis. Tortor elit, vestibulum enim id, ut ligula tempora. Consectetuer lectus fermentum, dignissim blandit tellus, velit ligula donec. Amet consequat amet, sed dui euismod. Ante ligula nibh, vitae vitae nulla, eros omnis. Purus tincidunt, erat eu.</string>
 </resources>
