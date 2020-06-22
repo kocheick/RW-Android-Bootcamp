@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="photo_profil_size">130dp</dimen>
+    <dimen name="xl_TextSize">34sp</dimen>
+    <dimen name="lg_TextSize">16sp</dimen>
+    <dimen name="med_TextSize">14sp</dimen>
+    <dimen name="sm_TextSize">12sp</dimen>
+
+    <dimen name="xl_space">34dp</dimen> // xtra large space
+    <dimen name="lg_space">24dp</dimen>
+    <dimen name="med_space">16dp</dimen>
+    <dimen name="sm_space">8dp</dimen> // small space
+    <dimen name="vsm_space">4dp</dimen>
+    <dimen name="mainButtonWidth">200dp</dimen>
+    <dimen name="mainButtonHeight">52dp</dimen>
+    // very small space
+</resources>

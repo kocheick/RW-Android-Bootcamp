@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -16,24 +17,23 @@
         app:layout_constraintBottom_toTopOf="@id/contactGroup"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="400px"
-            android:layout_height="400px"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilPhotoView"
+            android:layout_width="@dimen/photo_profil_size"
+            android:layout_height="@dimen/photo_profil_size"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:src="@drawable/profil_image"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/job"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Digital Marketer"
+            android:text="@string/userJob"
             android:textColor="#AC0000"
-            android:textSize="16sp"
+            android:textSize="@dimen/lg_TextSize"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -42,9 +42,10 @@
             android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Bronx, NY"
-            android:textSize="14sp"
+            android:layout_marginTop="@dimen/med_space"
+            android:text="@string/userCity"
+            android:textColor="#4E4E4E"
+            android:textSize="@dimen/med_TextSize"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/job" />
 
@@ -52,19 +53,20 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="@string/name"
-            android:textColor="#4E4E4E"
-            android:textSize="34sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            android:layout_marginStart="@dimen/lg_space"
+            android:text="@string/uName"
+            android:textColor="@color/mainColor"
+            android:textSize="@dimen/xl_TextSize"
+            app:layout_constraintStart_toEndOf="@+id/profilPhotoView"
+            app:layout_constraintTop_toTopOf="@+id/profilPhotoView" />
+
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/scheduleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="M-F : 9AM - 5PM"
-            android:textSize="12sp"
+            android:text="@string/userSchedule"
+            android:textSize="@dimen/sm_TextSize"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/city" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -75,60 +77,75 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/scrollView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profilGroup">
 
-        <TextView
+        <Button
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginLeft="32dp"
-            android:paddingBottom="8dp"
-            android:text="+1 (666) 777 - 8888"
-            android:textSize="14sp"
+            android:layout_marginLeft="@dimen/xl_space"
+            android:background="@color/ligther_gray"
+            android:paddingStart="@dimen/sm_space"
+            android:paddingEnd="@dimen/sm_space"
+            android:text="@string/userPhone"
+            android:textColor="@color/mainColor"
+            android:textSize="@dimen/sm_TextSize"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <Button
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:text="kocheick@email.me"
-            android:textSize="14sp"
+            android:layout_marginTop="@dimen/vsm_space"
+            android:background="@color/ligther_gray"
+            android:paddingStart="@dimen/sm_space"
+            android:paddingEnd="@dimen/sm_space"
+            android:text="@string/userEmail"
+            android:textColor="@color/mainColor"
+            android:textSize="@dimen/sm_TextSize"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/phone"
             app:layout_constraintTop_toBottomOf="@id/phone" />
 
 
-        <TextView
-            android:id="@+id/contact3"
+        <Button
+            android:id="@+id/contact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="64dp"
-            android:paddingBottom="8dp"
-            android:text="Discord / Slack : Kocheick"
-            android:textSize="13sp"
+            android:background="@color/ligther_gray"
+            android:paddingStart="@dimen/sm_space"
+            android:paddingEnd="@dimen/sm_space"
+            android:text="@string/userSocial"
+            android:textColor="@color/mainColor"
+            android:textSize="@dimen/sm_TextSize"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/phone" />
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toEndOf="@id/phone"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/social2"
+        <Button
+            android:id="@+id/social"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:text="Twitter / Snapchat : Kocheick"
-            android:textSize="13sp"
+            android:layout_marginTop="@dimen/vsm_space"
+            android:background="@color/ligther_gray"
+            android:paddingStart="@dimen/sm_space"
+            android:paddingEnd="@dimen/sm_space"
+            android:text="@string/userSocial2"
+            android:textColor="@color/mainColor"
+            android:textSize="@dimen/sm_TextSize"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/contact3"
-            app:layout_constraintTop_toBottomOf="@id/contact3" />
+            app:layout_constraintStart_toStartOf="@+id/contact"
+            app:layout_constraintTop_toBottomOf="@id/contact" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -137,58 +154,78 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+        app:layout_constraintBottom_toTopOf="@+id/shareButtonView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/contactGroup">
 
         <LinearLayout
+            android:id="@+id/scrollViewLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/attr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/dirt_white"
                 app:srcCompat="@android:drawable/ic_menu_mapmode" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/attr2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/dirt_white"
                 app:srcCompat="@android:drawable/ic_menu_compass" />
 
             <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/attr3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/dirt_white"
                 app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/attr4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/dirt_white"
                 app:srcCompat="@android:drawable/ic_dialog_email" />
         </LinearLayout>
     </ScrollView>
 
     <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="200dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:id="@+id/shareButtonView"
+        android:layout_width="@dimen/mainButtonWidth"
+        android:layout_height="@dimen/mainButtonHeight"
+        android:layout_marginBottom="@dimen/sm_space"
+        android:background="@color/dirt_white"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintCircleRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView"
         app:srcCompat="@android:drawable/ic_menu_share" />
+
+    <Switch
+        android:id="@+id/darkModeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sm_space"
+        android:text="Dark"
+
+        android:textSize="@dimen/med_TextSize"
+        app:layout_constraintBottom_toBottomOf="@+id/shareButtonView"
+        app:layout_constraintEnd_toStartOf="@+id/shareButtonView"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shareButtonView"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
