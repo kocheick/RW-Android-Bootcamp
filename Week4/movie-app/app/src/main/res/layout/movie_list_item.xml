@@ -29,7 +29,7 @@
             android:id="@+id/movieTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="@dimen/margin_half"
             android:text="@string/movie_title"
             android:textColor="@color/gray"
             android:textSize="@dimen/title_text_size"
@@ -47,7 +47,7 @@
             android:singleLine="false"
             android:text="@string/movie_summary"
             android:textColor="@color/lighter_gray"
-            android:textSize="@dimen/summurary_text_size"
+            android:textSize="@dimen/summary_text_size"
             app:layout_constraintStart_toStartOf="@+id/movieTitleTextView"
             app:layout_constraintTop_toBottomOf="@+id/movieTitleTextView" />
 
@@ -71,7 +71,7 @@
             android:layout_marginBottom="@dimen/margin_half"
             android:text="@string/movie_release_date"
             android:textColor="@color/light_gray"
-            android:textSize="@dimen/summurary_text_size"
+            android:textSize="@dimen/summary_text_size"
             app:layout_constraintBottom_toTopOf="@+id/movieSummaryTextView"
             app:layout_constraintStart_toEndOf="@+id/movieTitleTextView"
             app:layout_constraintTop_toTopOf="@+id/movieTitleTextView"

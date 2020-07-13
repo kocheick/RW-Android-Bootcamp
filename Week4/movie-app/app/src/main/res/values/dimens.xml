@@ -5,11 +5,11 @@
     <dimen name="poster_activity_height">350dp</dimen>
     <dimen name="poster_width">100dp</dimen>
     <dimen name="title_text_size">24sp</dimen>
-    <dimen name="summurary_text_size">14sp</dimen>
+    <dimen name="summary_text_size">14sp</dimen>
     <dimen name="duration_text_size">16sp</dimen>
 
     <dimen name="standard_margin">32dp</dimen>
     <dimen name="margin_half">16dp</dimen>
     <dimen name="view_margin">8dp</dimen>
-
+    <dimen name="login_screen_margin">200dp</dimen>
 </resources>

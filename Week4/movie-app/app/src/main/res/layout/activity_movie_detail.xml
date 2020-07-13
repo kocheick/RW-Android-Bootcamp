@@ -15,7 +15,7 @@
         android:singleLine="false"
         android:text="@string/movie_summary"
         android:textColor="@color/lighter_gray"
-        android:textSize="@dimen/summurary_text_size"
+        android:textSize="@dimen/summary_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/movieImageView"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,7 +55,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/movie_release_date"
         android:textColor="@color/light_gray"
-        android:textSize="@dimen/summurary_text_size"
+        android:textSize="@dimen/summary_text_size"
         app:layout_constraintStart_toStartOf="@+id/movieTitleTextView"
         app:layout_constraintTop_toBottomOf="@+id/movieTitleTextView" />
 
