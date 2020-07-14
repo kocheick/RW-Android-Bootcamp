@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Movie App</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="movie_summary"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque orci enim, convallis id lacinia vitae, rutrum non justo. Suspendisse quis lorem viverra, interdum lacus ac, molestie ex. Sed lacinia tempor orci, at consequat massa hendrerit. </string>
+    <string name="movie_duration">| %1$d min </string>
+    <string name="movie_release_date">DATE</string>
+    <string name="image_description">Movie Poster Image</string>
+    <string name="welcome_message">Welcome to Movie App</string>
+
+    <string name="deleted_movie"> %1$s was deleted</string>
+    <string name="re_added_movie"> %1$s was re-added !</string>
+
+    <string name="login_denied">Login DENIED !</string>
+</resources>
