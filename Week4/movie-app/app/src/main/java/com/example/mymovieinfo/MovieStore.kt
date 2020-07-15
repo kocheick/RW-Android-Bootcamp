@@ -5,7 +5,7 @@ import movies
 object MovieStore {
 
 
-    fun getAllMovies(): List<Movie> = movies
+    fun getAllMovies()= movies
 
     fun getMovieById(id: Int) = movies.firstOrNull { it.id == id }
 }

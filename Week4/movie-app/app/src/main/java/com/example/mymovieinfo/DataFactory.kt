@@ -1,12 +1,12 @@
 import com.example.mymovieinfo.Movie
 import com.example.mymovieinfo.R
 
-var movies = listOf<Movie>(
+var movies = mutableListOf<Movie>(
 
         Movie(
      0,
      "Unhinged",
-      "Rachel (Caren Pistorius) is running late to work when she has an altercation at a traffic light with a stranger (Crowe) whose life has left him feeling powerless and invisible. Soon, Rachel finds herself and everyone she loves the target of a man who decides to make one last mark upon the world by teaching her a series of deadly lessons. What follows is a dangerous game of cat and mouse that proves you never know just how close you are to someone who is about to become unhinged. ",
+      "Rachel (Caren Pistorius) is running late to work when sh e has an altercation at a traffic light with a stranger (Crowe) whose life has left him feeling powerless and invisible. Soon, Rachel finds herself and everyone she loves the target of a man who decides to make one last mark upon the world by teaching her a series of deadly lessons. What follows is a dangerous game of cat and mouse that proves you never know just how close you are to someone who is about to become unhinged. ",
   "01.10.2017",
            R.drawable.unhinged,
      90
