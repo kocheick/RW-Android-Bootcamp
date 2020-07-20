@@ -2,11 +2,7 @@ package com.example.mymovieinfo
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -19,17 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_movie_detail.*
-import kotlinx.android.synthetic.main.movie_list_item.*
-import kotlinx.android.synthetic.main.movie_list_item.movieImageView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.launch
-import java.net.HttpURLConnection
-import java.net.URL
-import java.util.*
-import javax.net.ssl.HttpsURLConnection
 
 @InternalCoroutinesApi
 class MainActivity : AppCompatActivity() {
@@ -47,8 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupAppContent() {
         adapter = MovieAdapter(mutableListOf())
-        movieListRecyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        movieListRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         movieListRecyclerView.adapter = adapter
         // attach swipe-to-delete to recycler view
         ItemTouchHelper(itemTouChCallBack).attachToRecyclerView(movieListRecyclerView)

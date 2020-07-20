@@ -5,8 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
+import kotlinx.coroutines.launch
 
 
 @Database(entities = [Movie::class], version = 1, exportSchema = false)
@@ -28,7 +31,7 @@ abstract class MovieDatabase : RoomDatabase() {
         }
 
         private fun populateDatabase(db: MovieDao) {
-            GlobalScope.launch(Dispatchers.IO) {
+            scope.launch(Dispatchers.IO) {
                 val movies = MovieStore.getAllMovies()
                 for (movie in movies) {
                     db.insertMovie(movie)
