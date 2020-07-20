@@ -58,6 +58,7 @@ abstract class MovieDatabase : RoomDatabase() {
                         MovieDatabase::class.java,
                         "movie_db"
                     )
+                        .allowMainThreadQueries()
                         .addCallback(MovieDatabaseCallback(scope))
                         .build()
                 INSTANCE = instance
