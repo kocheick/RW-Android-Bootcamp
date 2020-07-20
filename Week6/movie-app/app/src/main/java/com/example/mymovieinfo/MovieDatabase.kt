@@ -23,21 +23,7 @@ abstract class MovieDatabase : RoomDatabase() {
                     println("Database created..!")
                     val db = database.movieDao()
                     populateDatabase(db)
-                }GlobalScope.launch(Dispatchers.IO) {  Timer().schedule(object : TimerTask(){
-    override fun run() {
-        for (movie in movies ) {
-            Timer().schedule( object : TimerTask() {
-                override fun run() {
-                    movieViewModel.addMovie(movie)
-                    println("${movie.title} is being added to DB u should see it")
                 }
-            },5000)
-        }
-    }
-
-},)
-
-    }
             }
         }
 
