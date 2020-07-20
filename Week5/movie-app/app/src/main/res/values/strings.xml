@@ -7,8 +7,13 @@
     <string name="image_description">Movie Poster Image</string>
     <string name="welcome_message">Welcome to Movie App</string>
 
-    <string name="deleted_movie"> %1$s was deleted</string>
-    <string name="re_added_movie"> %1$s was re-added !</string>
+    <string name="deleted_movie">%1$s was deleted</string>
+    <string name="re_added_movie">%1$s was re-added !</string>
 
     <string name="login_denied">Login DENIED !</string>
+    <string name="username_text">Username</string>
+    <string name="password_text">Password</string>
+    <string name="login_text">Login</string>
+    <string name="logout_text">Logout</string>
+    <string name="clear_list_text">Clear list</string>
 </resources>

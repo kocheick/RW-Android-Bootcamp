@@ -9,40 +9,54 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
-import movies
+import kotlinx.coroutines.InternalCoroutinesApi
 
+import java.lang.Exception
+
+@InternalCoroutinesApi
 class MainActivity : AppCompatActivity() {
 
-    private val adapter = MovieAdapter(MovieStore.getAllMovies().toMutableList())
+    lateinit var adapter: MovieAdapter
+    lateinit var movies: MutableList<Movie>
+    lateinit var movieViewModel: MovieViewModel
 
-
+    @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initMainView()
-        supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        //supportActionBar?.setDisplayShowHomeEnabled(false)
 
-    }
+        adapter = MovieAdapter(mutableListOf())
 
-    private fun initMainView() {
         movieListRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         movieListRecyclerView.adapter = adapter
 
         // attach swipe-to-delete to recycler view
-        val touchHelper = ItemTouchHelper(itemTouChCallBack)
-            .attachToRecyclerView(movieListRecyclerView)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        supportActionBar?.setDisplayShowHomeEnabled(false)
+
+        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+
+        movieViewModel.getAllMovies().observe(this, Observer<MutableList<Movie>> { movies ->
+            this.movies = movies
+            println("showing movies ${movies.size}")
+            adapter.updateMovie(movies)
+            ItemTouchHelper(itemTouChCallBack).attachToRecyclerView(movieListRecyclerView)
+        })
 
 
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
@@ -51,20 +65,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         return when (item.itemId) {
             R.id.action_logout -> {
                 logOut()
                 true
             }
+           R.id.action_clear_list -> {
+               movieViewModel.clearMovies()
+               true
+           }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
 
     private fun logOut() {
-
-        val editor: Editor = getSharedPreferences("state", Context.MODE_PRIVATE).edit()
-        editor.putBoolean("loggedStatus", false).apply()
+        getSharedPreferences("state", Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean("loggedStatus", false)
+            .apply()
 
         val intent = Intent(this, LoginActivity::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -73,49 +92,43 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        // keeps the main screen to jump to login screen onBackPressed
+        // keeps the main screen from jumping to login screen onBackPressed
         super.onBackPressed()
         finishAffinity()
     }
 
 
-    private val itemTouChCallBack = object :
-        ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-        override fun onMove(
-            recyclerView: RecyclerView,
-            viewHolder: RecyclerView.ViewHolder,
-            target: RecyclerView.ViewHolder
-        ): Boolean {
-            return false
+    private val itemTouChCallBack =
+        object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+                val position = viewHolder.adapterPosition
+                val deletedMovie = movies[position]
+                val deletedMovieName = getString(R.string.deleted_movie, deletedMovie.title)
+
+                Snackbar.make(movieListRecyclerView, deletedMovieName, Snackbar.LENGTH_SHORT)
+                    .setAction("Undo", View.OnClickListener {
+                        adapter.addMovieBack(position)
+                        movieViewModel.addMovie(deletedMovie)
+                        adapter.notifyItemInserted(position)
+
+                        Toast.makeText(applicationContext, deletedMovieName, Toast.LENGTH_SHORT)
+                            .show()
+                    }).show()
+
+                adapter.deleteMovie(position)
+                movieViewModel.deleteMovie(deletedMovie)
+                adapter.notifyItemRemoved(position)
+            }
         }
-
-        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-            val position = viewHolder.adapterPosition
-
-            val deletedMovie = movies[position]
-            val deletedMovieName = getString(R.string.deleted_movie, deletedMovie.title)
-
-            Snackbar.make(
-                movieListRecyclerView,
-                getString(R.string.deleted_movie, deletedMovieName),
-                Snackbar.LENGTH_SHORT
-            ).setAction("Undo", View.OnClickListener {
-                    movies.add(position, deletedMovie)
-                    adapter.addMovieBack(position)
-                    adapter.notifyItemInserted(position)
-                    //Snackbar.make(movieListRecyclerView,getString(R.string.re_added_movie,deletedMovie.title), Snackbar.LENGTH_SHORT)
-                    Toast.makeText(
-                        applicationContext,
-                        getString(R.string.re_added_movie, deletedMovie.title),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }).show()
-
-            movies.removeIf { movies.indexOf(it) == position }
-            adapter.deleteMovie(position)
-            adapter.notifyItemRemoved(position)
-        }
-    }
 
 
 }

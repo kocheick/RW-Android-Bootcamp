@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         // attach swipe-to-delete to recycler view
         ItemTouchHelper(itemTouChCallBack).attachToRecyclerView(movieListRecyclerView)
     }
+
+
     private val itemTouChCallBack = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
         override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
             return false

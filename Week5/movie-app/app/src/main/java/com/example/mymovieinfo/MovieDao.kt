@@ -1,21 +1,24 @@
 package com.example.mymovieinfo
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 
 
 @Dao
 interface MovieDao {
     @Query("SELECT * FROM movie_table")
-    fun getAllMovies() : List<Movie>
+    fun getAllMovies() : LiveData<MutableList<Movie>>
 
-    @Query("SELECT * FROM movie_table WHERE id =:movieId")
+    @Query("SELECT * FROM movie_table WHERE id IN(:movieId)")
     fun getMovieById(movieId: Int) : Movie
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addMovie(movie: Movie)
+    fun insertMovie(movie: Movie)
+
 
     @Delete
-    fun deleteMovieById(movieId: Int)
+    fun deleteMovie(movie: Movie)
 
     @Query("DELETE FROM movie_table")
     fun deleteAllMovies()

@@ -25,6 +25,7 @@ class MovieViewHolder(private val containerView: View): RecyclerView.ViewHolder(
         val context = view.context
         val intent  = MovieActivity.newIntent(context,movie.id )
         context.startActivity(intent)
+
     }
 
 

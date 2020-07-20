@@ -6,9 +6,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlin.properties.Delegates
 import kotlin.system.exitProcess
 
+@InternalCoroutinesApi
 class LoginActivity : AppCompatActivity() {
 
     private var isLoggedIn: Boolean = false
@@ -46,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
         super.onResume()
         println("On RESUME Called $isLoggedIn")
         val sharedPreferences = getSharedPreferences("state", Context.MODE_PRIVATE) ?: return
-        isLoggedIn = sharedPreferences?.getBoolean("loggedStatus", isLoggedIn)
+        isLoggedIn = sharedPreferences.getBoolean("loggedStatus", isLoggedIn)
 
         if (isLoggedIn) startActivity(Intent(this, MainActivity::class.java))
 

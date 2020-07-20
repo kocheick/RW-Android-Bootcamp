@@ -3,7 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_logout"
-        android:title="Logout"
+        android:id="@+id/action_clear_list"
+        android:title="@string/clear_list_text"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:title="@string/logout_text"
+        app:showAsAction="never" />
+
 </menu>
