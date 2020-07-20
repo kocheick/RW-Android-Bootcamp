@@ -43,25 +43,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupAppContent()
-Log.d("TaskScope", Thread.currentThread().name)
-GlobalScope.launch {
-    Log.d("TaskScope", Thread.currentThread().name)
-            var imageUrl = URL("https://http.cat/200")
-
-            val connection = imageUrl.openConnection() as HttpsURLConnection
-            connection.doInput = true
-            connection.connect()
-
-            val inputStream = connection.inputStream
-
-            val bipmap = BitmapFactory.decodeStream(inputStream)
-
-            Handler(mainLooper). post { Log.d("TaskScope", Thread.currentThread().name)
-                movieImageView.setImageBitmap(bipmap) }
-
-
-
-        }
 
     }
 
