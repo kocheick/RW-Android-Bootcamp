@@ -6,4 +6,7 @@
     <string name="movie_release_date">DATE</string>
     <string name="image_description">Movie Poster Image</string>
     <string name="welcome_message">Welcome to Movie App</string>
+
+    <string name="deleted_movie"> %1$s was deleted</string>
+    <string name="re_added_movie"> %1$s was re-added !</string>
 </resources>

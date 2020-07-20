@@ -21,9 +21,14 @@ class MovieAdapter(private var movies: MutableList<Movie>): RecyclerView.Adapter
         holder.bind(movies[position])
     }
 
-
-    fun deleteItem(pos: Int) {
+    private lateinit var deletedMovie : Movie
+    fun deleteMovie(pos: Int) {
+        deletedMovie = movies[pos]
         movies.removeAt(pos)
+
+    }
+    fun addMovieBack(position: Int) {
+        movies.add(position,deletedMovie)
     }
 
 
