@@ -3,9 +3,7 @@ package com.example.mymovieinfo
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -13,7 +11,7 @@ import kotlinx.coroutines.launch
 class MovieViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository: MovieRepository
-    var liveDataMovies : LiveData<MutableList<Movie>>
+    private var liveDataMovies : LiveData<MutableList<Movie>>
 
     init {
         val movieDao = MovieDatabase.getDatabase(application,viewModelScope).movieDao()

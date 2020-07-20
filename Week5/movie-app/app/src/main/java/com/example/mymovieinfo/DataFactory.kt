@@ -1,7 +1,7 @@
 import com.example.mymovieinfo.Movie
 import com.example.mymovieinfo.R
 
-var movies = mutableListOf<Movie>(
+var movies = mutableListOf(
 
         Movie(
      0,

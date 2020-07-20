@@ -5,14 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mymovieinfo.MovieActivity.Companion.EXTRA_MOVIE_ID
 import kotlinx.android.synthetic.main.activity_movie_detail.*
-import kotlinx.android.synthetic.main.movie_list_item.view.*
-import kotlinx.android.synthetic.main.movie_list_item.view.movieDurationTextView
-import kotlinx.android.synthetic.main.movie_list_item.view.movieImageView
-import kotlinx.android.synthetic.main.movie_list_item.view.movieReleaseDateTextView
-import kotlinx.android.synthetic.main.movie_list_item.view.movieSummaryTextView
-import kotlinx.android.synthetic.main.movie_list_item.view.movieTitleTextView
 
 class MovieActivity : AppCompatActivity() {
 private lateinit var movie: Movie
@@ -33,7 +26,7 @@ private lateinit var movie: Movie
 
     private fun setupView() {
         val movieId = intent.getIntExtra(EXTRA_MOVIE_ID,0)
-        var movieById = MovieStore.getMovieById(movieId)
+        val movieById = MovieStore.getMovieById(movieId)
 
         if (movieById == null) Toast.makeText(this, "Invalid movie", Toast.LENGTH_SHORT).show() else movie = movieById
 

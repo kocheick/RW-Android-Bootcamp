@@ -8,17 +8,17 @@ class MovieRepository(private val movieDao: MovieDao) {
         return movieDao.getAllMovies()
     }
 
-    suspend fun insert(movie: Movie) {
+    fun insert(movie: Movie) {
         movieDao.insertMovie(movie)
     }
 
 
 
-    suspend fun deleteAll(){
+    fun deleteAll(){
         movieDao.deleteAllMovies()
     }
 
-    suspend fun deleteMovie(movie: Movie){
+    fun deleteMovie(movie: Movie){
         movieDao.deleteMovie(movie)
     }
 }

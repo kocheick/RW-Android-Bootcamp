@@ -2,26 +2,33 @@ package com.example.mymovieinfo
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences.Editor
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.activity_movie_detail.*
+import kotlinx.android.synthetic.main.movie_list_item.*
+import kotlinx.android.synthetic.main.movie_list_item.movieImageView
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.InternalCoroutinesApi
-
-import java.lang.Exception
+import kotlinx.coroutines.launch
+import java.net.HttpURLConnection
+import java.net.URL
+import java.util.*
+import javax.net.ssl.HttpsURLConnection
 
 @InternalCoroutinesApi
 class MainActivity : AppCompatActivity() {
@@ -35,27 +42,46 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setupAppContent()
+Log.d("TaskScope", Thread.currentThread().name)
+GlobalScope.launch {
+    Log.d("TaskScope", Thread.currentThread().name)
+            var imageUrl = URL("https://http.cat/200")
+
+            val connection = imageUrl.openConnection() as HttpsURLConnection
+            connection.doInput = true
+            connection.connect()
+
+            val inputStream = connection.inputStream
+
+            val bipmap = BitmapFactory.decodeStream(inputStream)
+
+            Handler(mainLooper). post { Log.d("TaskScope", Thread.currentThread().name)
+                movieImageView.setImageBitmap(bipmap) }
+
+
+
+        }
+
+    }
+
+    private fun setupAppContent() {
         adapter = MovieAdapter(mutableListOf())
 
         movieListRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         movieListRecyclerView.adapter = adapter
-
         // attach swipe-to-delete to recycler view
+        ItemTouchHelper(itemTouChCallBack).attachToRecyclerView(movieListRecyclerView)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         supportActionBar?.setDisplayShowHomeEnabled(false)
 
         movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
-
-        movieViewModel.getAllMovies().observe(this, Observer<MutableList<Movie>> { movies ->
+        movieViewModel.getAllMovies().observe(this, Observer { movies ->
             this.movies = movies
-            println("showing movies ${movies.size}")
-            adapter.updateMovie(movies)
-            ItemTouchHelper(itemTouChCallBack).attachToRecyclerView(movieListRecyclerView)
+            adapter.showMovies(movies)
         })
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,10 +96,10 @@ class MainActivity : AppCompatActivity() {
                 logOut()
                 true
             }
-           R.id.action_clear_list -> {
-               movieViewModel.clearMovies()
-               true
-           }
+            R.id.action_clear_list -> {
+                movieViewModel.clearMovies()
+                true
+            }
 
             else -> super.onOptionsItemSelected(item)
         }
