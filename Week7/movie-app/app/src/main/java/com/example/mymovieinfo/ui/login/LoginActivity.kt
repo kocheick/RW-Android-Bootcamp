@@ -1,9 +1,11 @@
-package com.example.mymovieinfo
+package com.example.mymovieinfo.ui.login
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mymovieinfo.R
+import com.example.mymovieinfo.ui.main.MainActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -38,7 +40,8 @@ class LoginActivity : AppCompatActivity() {
             finish()
 
 
-        } else Snackbar.make(login_container, R.string.login_denied, Snackbar.LENGTH_SHORT).show()
+        } else Snackbar.make(login_container,
+            R.string.login_denied, Snackbar.LENGTH_SHORT).show()
 
     }
 

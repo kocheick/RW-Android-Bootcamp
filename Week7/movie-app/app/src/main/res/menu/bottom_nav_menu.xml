@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/searchMovieFragment"
+        android:icon="@android:drawable/ic_menu_more"
+        android:title="@string/movie_list_fragment_title" />
+    <item
+        android:id="@+id/favoriteMoviesFragment"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/favorite_movies_list_fragment_title"
+     />
+</menu>

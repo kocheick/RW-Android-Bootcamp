@@ -30,6 +30,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_half"
+            android:ellipsize="end"
+            android:maxLength="24"
+            android:singleLine="true"
             android:text="@string/movie_title"
             android:textColor="@color/gray"
             android:textSize="@dimen/title_text_size"
@@ -43,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:ellipsize="end"
-            android:lines="3"
+            android:maxLines="3"
             android:singleLine="false"
             android:text="@string/movie_summary"
             android:textColor="@color/lighter_gray"
@@ -56,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:singleLine="true"
             android:text="@string/movie_duration"
             android:textColor="@color/light_gray"
             android:textSize="@dimen/duration_text_size"
@@ -67,15 +71,27 @@
             android:id="@+id/movieReleaseDateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginBottom="@dimen/margin_half"
+            android:layout_marginEnd="32dp"
             android:text="@string/movie_release_date"
             android:textColor="@color/light_gray"
             android:textSize="@dimen/summary_text_size"
             app:layout_constraintBottom_toTopOf="@+id/movieSummaryTextView"
+            app:layout_constraintEnd_toStartOf="@+id/movieListFavoriteButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/movieTitleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/movieTitleTextView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/movieListFavoriteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/heart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.947"
             app:layout_constraintStart_toEndOf="@+id/movieTitleTextView"
-            app:layout_constraintTop_toTopOf="@+id/movieTitleTextView"
-            app:layout_constraintVertical_bias="0.75" />
+            app:layout_constraintTop_toTopOf="@+id/movieTitleTextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
